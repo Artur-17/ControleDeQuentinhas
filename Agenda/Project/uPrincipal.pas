@@ -19,12 +19,13 @@ type
     ImageList1: TImageList;
     Label1: TLabel;
     TimerDataHora: TTimer;
-    Button1: TButton;
+    Label2: TLabel;
+    btnQuentinha: TButton;
     procedure Sair1Click(Sender: TObject);
     procedure Clientes1Click(Sender: TObject);
     procedure btnCadastrarClick(Sender: TObject);
     procedure TimerDataHoraTimer(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
+    procedure btnQuentinhaClick(Sender: TObject);
     procedure btnCadastrarKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -41,7 +42,7 @@ var
 
 implementation
 
-  uses uFuncionarios, uTabGlobal;
+  uses uFuncionarios, uTabGlobal, uQuentinhas;
 
 {$R *.dfm}
 
@@ -61,12 +62,9 @@ begin
     end;
 end;
 
-procedure TfrmPrincipal.Button1Click(Sender: TObject);
+procedure TfrmPrincipal.btnQuentinhaClick(Sender: TObject);
 begin
-  TTabGlobal.ExecutaSQL(
-  'INSERT INTO FUNCIONARIOS ' +
-  '(NOME, EMAIL, BAIRRO, CIDADE, TELEFONE, CEP, DT_NASCIMENTO, OBS) ' +
-  'VALUES (''Joaquim'', ''Teste'', ''Teste'', ''sj'', ''cep'', ''22'', ''25'', ''chega'')');
+  TfrmQuentinhas.ExibirQuentinhas(self);
 end;
 
 procedure TfrmPrincipal.Clientes1Click(Sender: TObject);

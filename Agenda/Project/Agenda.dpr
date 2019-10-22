@@ -4,7 +4,8 @@ uses
   Vcl.Forms,
   uPrincipal in 'uPrincipal.pas' {frmPrincipal},
   uFuncionarios in 'uFuncionarios.pas' {frmFuncionarios},
-  uTabGlobal in 'uTabGlobal.pas' {TabGlobal: TDataModule};
+  uTabGlobal in 'uTabGlobal.pas' {TabGlobal: TDataModule},
+  uQuentinhas in 'uQuentinhas.pas' {frmQuentinhas};
 
 {$R *.res}
 
