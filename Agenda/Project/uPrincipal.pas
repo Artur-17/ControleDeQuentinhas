@@ -21,6 +21,12 @@ type
     TimerDataHora: TTimer;
     Label2: TLabel;
     btnQuentinha: TButton;
+    Panel1: TPanel;
+    btnRelatorios: TButton;
+    Label3: TLabel;
+    Quentinha1: TMenuItem;
+    Consulta1: TMenuItem;
+    Relatrios1: TMenuItem;
     procedure Sair1Click(Sender: TObject);
     procedure Clientes1Click(Sender: TObject);
     procedure btnCadastrarClick(Sender: TObject);
@@ -31,6 +37,8 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Quentinha1Click(Sender: TObject);
+    procedure btnRelatoriosClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -67,9 +75,14 @@ begin
   TfrmQuentinhas.ExibirQuentinhas(self);
 end;
 
+procedure TfrmPrincipal.btnRelatoriosClick(Sender: TObject);
+begin
+  //
+end;
+
 procedure TfrmPrincipal.Clientes1Click(Sender: TObject);
 begin
-   frmFuncionarios.ShowModal;
+   TfrmFuncionarios.exibirFuncionario(self);
 end;
 
 procedure TfrmPrincipal.FormActivate(Sender: TObject);
@@ -90,6 +103,11 @@ procedure TfrmPrincipal.FormKeyDown(Sender: TObject; var Key: Word;
 begin
   if key =(VK_ESCAPE) then
   Close;
+end;
+
+procedure TfrmPrincipal.Quentinha1Click(Sender: TObject);
+begin
+  TfrmQuentinhas.ExibirQuentinhas(self);
 end;
 
 procedure TfrmPrincipal.Sair1Click(Sender: TObject);

@@ -8,7 +8,8 @@ uses
   FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool,
   FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.FB, FireDAC.Phys.FBDef,
   FireDAC.VCLUI.Wait, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
-  FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Datasnap.DBClient;
+  FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Datasnap.DBClient,
+  System.ImageList, Vcl.ImgList, Vcl.Controls;
 
 type
   TTabGlobal = class(TDataModule)
@@ -17,6 +18,8 @@ type
     DataSource1: TDataSource;
     FDCommand1: TFDCommand;
     FDTransaction1: TFDTransaction;
+    Image_16x16: TImageList;
+    Image_128x128: TImageList;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }

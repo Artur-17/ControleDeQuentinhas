@@ -10,11 +10,14 @@ object frmQuentinhas: TfrmQuentinhas
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  KeyPreview = True
   OldCreateOrder = False
+  Position = poDesktopCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Label5: TLabel
-    Left = 8
+    Left = 17
     Top = 335
     Width = 203
     Height = 19
@@ -80,7 +83,7 @@ object frmQuentinhas: TfrmQuentinhas
     object edtValor: TEdit
       Left = 179
       Top = 160
-      Width = 121
+      Width = 78
       Height = 24
       TabOrder = 2
     end
@@ -95,9 +98,6 @@ object frmQuentinhas: TfrmQuentinhas
     ParentBackground = False
     ShowCaption = False
     TabOrder = 1
-    ExplicitLeft = -8
-    ExplicitTop = 2
-    ExplicitWidth = 560
     object Label1: TLabel
       Left = 256
       Top = 8
@@ -122,31 +122,30 @@ object frmQuentinhas: TfrmQuentinhas
     TabOrder = 2
   end
   object btnSalvar: TButton
-    Left = 8
+    Left = 86
     Top = 536
     Width = 75
     Height = 25
     Caption = 'Salvar'
+    ImageIndex = 0
+    Images = TabGlobal.Image_16x16
     TabOrder = 3
   end
   object btnExcluir: TButton
-    Left = 121
+    Left = 209
     Top = 536
     Width = 75
     Height = 25
     Caption = 'Excluir'
+    Images = TabGlobal.Image_16x16
     TabOrder = 4
   end
   object btnSair: TButton
-    Left = 233
+    Left = 337
     Top = 536
     Width = 75
     Height = 25
     Caption = 'Sair'
     TabOrder = 5
-  end
-  object ImageList1: TImageList
-    Left = 528
-    Top = 40
   end
 end

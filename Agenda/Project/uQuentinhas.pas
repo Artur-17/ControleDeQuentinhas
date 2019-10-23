@@ -9,7 +9,6 @@ uses
 
 type
   TfrmQuentinhas = class(TForm)
-    ImageList1: TImageList;
     Label1: TLabel;
     gpNovoPedido: TGroupBox;
     pnlTop: TPanel;
@@ -24,6 +23,7 @@ type
     btnExcluir: TButton;
     btnSair: TButton;
     Label5: TLabel;
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -36,6 +36,8 @@ var
 implementation
 
 {$R *.dfm}
+
+uses uTabGlobal;
 
 { TfrmQuentinhas }
 
@@ -54,6 +56,11 @@ begin
   end;
 
 
+end;
+
+procedure TfrmQuentinhas.FormCreate(Sender: TObject);
+begin
+  memoDescricao.Text := '';
 end;
 
 end.

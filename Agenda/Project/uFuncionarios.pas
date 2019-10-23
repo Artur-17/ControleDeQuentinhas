@@ -13,32 +13,38 @@ uses
 
 type
   TfrmFuncionarios = class(TForm)
+    QRYFuncionarios: TFDQuery;
+    dtsfuncionario: TDataSource;
+    ImageList1: TImageList;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
     Label6: TLabel;
-    dtpNasc: TDateTimePicker;
     Label7: TLabel;
     Label8: TLabel;
-    Panel1: TPanel;
-    btnIncluir: TButton;
-    QRYFuncionarios: TFDQuery;
     edtCodigo: TEdit;
-    dtsfuncionario: TDataSource;
-    Panel2: TPanel;
-    Image1: TImage;
-    ImageList1: TImageList;
-    Panel3: TPanel;
+    btnIncluir: TButton;
+    dtpNasc: TDateTimePicker;
     btnDeletar: TButton;
     EdtNome: TEdit;
     EdtEmail: TEdit;
-    EdtBairo: TEdit;
-    EdtCpf: TMaskEdit;
-    EdtCep: TMaskEdit;
-    EdtTelefone: TMaskEdit;
-    DBGrid: TDBGrid;
+    EdtBairro: TEdit;
+    Panel1: TPanel;
+    Label9: TLabel;
+    TabFuncionários: TPageControl;
+    TabSheet1: TTabSheet;
+    EdtCPF: TEdit;
+    EdtTelefone: TEdit;
+    EdtCep: TEdit;
+    mInfo: TMemo;
+    Label10: TLabel;
+    EdtCidade: TEdit;
+    Label11: TLabel;
+    Label12: TLabel;
+    cbUF: TComboBox;
+    Avatar: TImage;
     procedure btnIncluirClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
 
@@ -84,7 +90,7 @@ var
    [QuotedStr(edtNome.Text),
     QuotedStr(EdtEmail.Text),
     QuotedStr(EdtCpf.Text),
-    QuotedStr(EdtBairo.Text),
+    QuotedStr(EdtBairro.Text),
     QuotedStr(EdtCep.Text),
     QuotedStr(EdtTelefone.Text),
     QuotedStr(DataConvertida)]);
@@ -123,7 +129,7 @@ procedure TfrmFuncionarios.FormCreate(Sender: TObject);
 var
  lSQL : String;
 begin
-
+       mInfo.Text := '';
 
        QRYFuncionarios.Connection := Conexao;
        QRYFuncionarios.Active := true;
