@@ -115,8 +115,8 @@ object frmPrincipal: TfrmPrincipal
       end>
   end
   object MainMenu1: TMainMenu
-    Left = 672
-    Top = 136
+    Left = 112
+    Top = 160
     object Cadastros1: TMenuItem
       Caption = 'Cadastros'
       object Clientes1: TMenuItem
@@ -147,8 +147,8 @@ object frmPrincipal: TfrmPrincipal
     Height = 32
     ShareImages = True
     Width = 32
-    Left = 672
-    Top = 184
+    Left = 80
+    Top = 160
     Bitmap = {
       494C010107000800040020002000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000800000004000000001002000000000000080
@@ -1215,7 +1215,7 @@ object frmPrincipal: TfrmPrincipal
   end
   object TimerDataHora: TTimer
     OnTimer = TimerDataHoraTimer
-    Left = 672
-    Top = 240
+    Left = 144
+    Top = 160
   end
 end

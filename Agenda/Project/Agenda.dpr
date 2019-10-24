@@ -5,7 +5,8 @@ uses
   uPrincipal in 'uPrincipal.pas' {frmPrincipal},
   uFuncionarios in 'uFuncionarios.pas' {frmFuncionarios},
   uTabGlobal in 'uTabGlobal.pas' {TabGlobal: TDataModule},
-  uQuentinhas in 'uQuentinhas.pas' {frmQuentinhas};
+  uQuentinhas in 'uQuentinhas.pas' {frmQuentinhas},
+  uLocalizarFuncionarios in 'uLocalizarFuncionarios.pas' {frmLocalizarFuncionario};
 
 {$R *.res}
 
@@ -15,4 +16,4 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.Run;
-end.                                                         -
+end.

@@ -12,7 +12,7 @@ object frmQuentinhas: TfrmQuentinhas
   Font.Style = []
   KeyPreview = True
   OldCreateOrder = False
-  Position = poDesktopCenter
+  Position = poMainFormCenter
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
@@ -63,13 +63,12 @@ object frmQuentinhas: TfrmQuentinhas
       Height = 16
       Caption = 'Valor'
     end
-    object cbFuncionario: TComboBox
-      Left = 27
-      Top = 86
-      Width = 441
-      Height = 24
-      Style = csDropDownList
-      TabOrder = 0
+    object btnLocalizar: TSpeedButton
+      Left = 495
+      Top = 96
+      Width = 23
+      Height = 22
+      OnClick = btnLocalizarClick
     end
     object dtpDataQ: TDateTimePicker
       Left = 27
@@ -78,12 +77,19 @@ object frmQuentinhas: TfrmQuentinhas
       Height = 24
       Date = 43759.000000000000000000
       Time = 0.951367233799828700
-      TabOrder = 1
+      TabOrder = 0
     end
     object edtValor: TEdit
       Left = 179
       Top = 160
       Width = 78
+      Height = 24
+      TabOrder = 1
+    end
+    object edtCliente: TEdit
+      Left = 27
+      Top = 96
+      Width = 462
       Height = 24
       TabOrder = 2
     end
@@ -118,7 +124,7 @@ object frmQuentinhas: TfrmQuentinhas
     Width = 553
     Height = 137
     Lines.Strings = (
-      'memoDescricao')
+      '')
     TabOrder = 2
   end
   object btnSalvar: TButton

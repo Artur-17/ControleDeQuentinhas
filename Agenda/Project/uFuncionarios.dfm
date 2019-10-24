@@ -11,7 +11,7 @@
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesktopCenter
+  Position = poMainFormCenter
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
@@ -37,7 +37,9 @@
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 0
+      DesignSize = (
+        835
+        547)
       object Label8: TLabel
         Left = 252
         Top = 101
@@ -69,6 +71,7 @@
         Top = 3
         Width = 37
         Height = 16
+        Anchors = [akLeft, akTop, akRight]
         Caption = 'Nome'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
@@ -186,6 +189,7 @@
         Top = 38
         Width = 128
         Height = 128
+        Anchors = [akTop, akRight]
         AutoSize = True
         Picture.Data = {
           0954506E67496D61676589504E470D0A1A0A0000000D49484452000000800000
@@ -531,8 +535,6 @@
         Font.Height = -16
         Font.Name = 'Tahoma'
         Font.Style = []
-        Lines.Strings = (
-          'Memo1')
         ParentFont = False
         TabOrder = 10
       end
@@ -571,6 +573,7 @@
     Width = 843
     Height = 41
     Align = alTop
+    BevelOuter = bvNone
     Caption = 'Panel1'
     Color = clTeal
     ParentBackground = False

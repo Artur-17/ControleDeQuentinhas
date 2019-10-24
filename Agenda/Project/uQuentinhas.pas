@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,
-  System.ImageList, Vcl.ImgList, Vcl.ComCtrls;
+  System.ImageList, Vcl.ImgList, Vcl.ComCtrls, Vcl.Buttons;
 
 type
   TfrmQuentinhas = class(TForm)
@@ -13,7 +13,6 @@ type
     gpNovoPedido: TGroupBox;
     pnlTop: TPanel;
     Label2: TLabel;
-    cbFuncionario: TComboBox;
     dtpDataQ: TDateTimePicker;
     Label3: TLabel;
     edtValor: TEdit;
@@ -23,7 +22,10 @@ type
     btnExcluir: TButton;
     btnSair: TButton;
     Label5: TLabel;
+    edtCliente: TEdit;
+    btnLocalizar: TSpeedButton;
     procedure FormCreate(Sender: TObject);
+    procedure btnLocalizarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -34,12 +36,17 @@ var
   frmQuentinhas: TfrmQuentinhas;
 
 implementation
+uses
+  uTabGlobal, uLocalizarFuncionarios;
 
 {$R *.dfm}
 
-uses uTabGlobal;
-
 { TfrmQuentinhas }
+
+procedure TfrmQuentinhas.btnLocalizarClick(Sender: TObject);
+begin
+  TfrmLocalizarFuncionario.Exibir(self);
+end;
 
 class procedure TfrmQuentinhas.ExibirQuentinhas(pOwnwer: Tform);
 var
