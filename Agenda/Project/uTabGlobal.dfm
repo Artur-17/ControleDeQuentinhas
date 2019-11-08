@@ -9,18 +9,9 @@ object TabGlobal: TTabGlobal
       'User_Name=sysdba'
       'Password=masterkey'
       'DriverID=FB')
+    Connected = True
     LoginPrompt = False
     Left = 32
-    Top = 16
-  end
-  object ClientDataSet1: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    Left = 504
-    Top = 64
-  end
-  object DataSource1: TDataSource
-    Left = 504
     Top = 16
   end
   object FDCommand1: TFDCommand

@@ -13,6 +13,7 @@
   OldCreateOrder = False
   Position = poMainFormCenter
   OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object TabFuncionários: TPageControl
@@ -37,6 +38,7 @@
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
+      ExplicitLeft = 8
       DesignSize = (
         835
         547)
@@ -397,39 +399,6 @@
           CD38F322092F07BC8DAD7E3AC7F3474EECFBF872F5DEFF03F69C0BBBE2170033
           0000000049454E44AE426082}
       end
-      object btnDeletar: TButton
-        Left = 151
-        Top = 508
-        Width = 75
-        Height = 25
-        Caption = 'Excluir'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clHighlight
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ImageIndex = 3
-        Images = TabGlobal.Image_16x16
-        ParentFont = False
-        TabOrder = 0
-      end
-      object btnIncluir: TButton
-        Left = 24
-        Top = 508
-        Width = 75
-        Height = 25
-        Caption = 'Incluir'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clHighlight
-        Font.Height = -13
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ImageIndex = 0
-        Images = TabGlobal.Image_16x16
-        ParentFont = False
-        TabOrder = 1
-        OnClick = btnIncluirClick
-      end
       object dtpNasc: TDateTimePicker
         Left = 432
         Top = 122
@@ -503,6 +472,7 @@
         Top = 121
         Width = 213
         Height = 27
+        NumbersOnly = True
         TabOrder = 7
       end
       object EdtTelefone: TEdit
@@ -510,6 +480,7 @@
         Top = 121
         Width = 149
         Height = 27
+        NumbersOnly = True
         TabOrder = 8
       end
       object EdtCep: TEdit
@@ -522,6 +493,7 @@
         Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = []
+        NumbersOnly = True
         ParentFont = False
         TabOrder = 9
       end
@@ -551,11 +523,12 @@
         ParentFont = False
         TabOrder = 11
       end
-      object cbUF: TComboBox
-        Left = 432
+      object cbxUF: TComboBox
+        Left = 431
         Top = 224
-        Width = 49
-        Height = 26
+        Width = 57
+        Height = 22
+        Style = csOwnerDrawFixed
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clDefault
         Font.Height = -15
@@ -563,7 +536,51 @@
         Font.Style = []
         ParentFont = False
         TabOrder = 12
-        Text = 'cbUF'
+      end
+      object btnSalvar: TcxButton
+        Left = 13
+        Top = 520
+        Width = 76
+        Height = 24
+        Caption = 'Salvar'
+        LookAndFeel.NativeStyle = False
+        LookAndFeel.SkinName = 'Office2016Colorful'
+        OptionsImage.Glyph.SourceDPI = 96
+        OptionsImage.Glyph.Data = {
+          89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+          610000000B744558745469746C6500536176653BF9E8F9090000004849444154
+          785EDDD0C10900200885E1D66C1BAFCDD2146FB15E10782A4A940E25FC1E3FC4
+          4432D45825577A9A00E39C0100CB747EBD200ED8BB0C3472971950F021401C4F
+          140542756780187A6CE7455E0000000049454E44AE426082}
+        OptionsImage.ImageIndex = 4
+        OptionsImage.Images = TabGlobal.Image_16x16
+        TabOrder = 1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clCaptionText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        OnClick = btnSalvarClick
+      end
+      object btnSair: TcxButton
+        Left = 742
+        Top = 511
+        Width = 75
+        Height = 25
+        Caption = 'Sair'
+        LookAndFeel.NativeStyle = False
+        LookAndFeel.SkinName = 'Office2016Colorful'
+        OptionsImage.ImageIndex = 6
+        OptionsImage.Images = TabGlobal.Image_16x16
+        TabOrder = 0
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clHighlight
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        OnClick = btnSairClick
       end
     end
   end
@@ -596,11 +613,10 @@
     end
   end
   object QRYFuncionarios: TFDQuery
-    MasterSource = TabGlobal.DataSource1
     SQL.Strings = (
       'select * from funcionarios')
-    Left = 776
-    Top = 568
+    Left = 744
+    Top = 488
   end
   object dtsfuncionario: TDataSource
     DataSet = QRYFuncionarios
@@ -610,8 +626,8 @@
   object ImageList1: TImageList
     BlendColor = clGradientInactiveCaption
     BkColor = clWhite
-    Left = 774
-    Top = 513
+    Left = 782
+    Top = 489
     Bitmap = {
       494C010101000800040010001000FFFFFF00FF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
@@ -751,5 +767,15 @@
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000}
+  end
+  object ClientDataSet1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 732
+    Top = 436
+  end
+  object FDQuery1: TFDQuery
+    Left = 588
+    Top = 300
   end
 end

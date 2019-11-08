@@ -11,22 +11,9 @@ object frmLocalizarFuncionario: TfrmLocalizarFuncionario
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poOwnerFormCenter
   PixelsPerInch = 96
   TextHeight = 13
-  object grdPesquisar: TDBGrid
-    Left = 0
-    Top = 102
-    Width = 727
-    Height = 254
-    Align = alBottom
-    DataSource = dtsFuncionario
-    TabOrder = 0
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -11
-    TitleFont.Name = 'Tahoma'
-    TitleFont.Style = []
-  end
   object pnlBottom: TPanel
     Left = 0
     Top = 356
@@ -36,7 +23,7 @@ object frmLocalizarFuncionario: TfrmLocalizarFuncionario
     BevelOuter = bvNone
     Caption = 'pnlBottom'
     ShowCaption = False
-    TabOrder = 1
+    TabOrder = 0
     object btnConfirmar: TButton
       Left = 551
       Top = 6
@@ -44,6 +31,7 @@ object frmLocalizarFuncionario: TfrmLocalizarFuncionario
       Height = 25
       Caption = 'Confirmar'
       TabOrder = 0
+      OnClick = btnConfirmarClick
     end
     object btnCancelar: TButton
       Left = 632
@@ -52,6 +40,7 @@ object frmLocalizarFuncionario: TfrmLocalizarFuncionario
       Height = 25
       Caption = 'Cancelar'
       TabOrder = 1
+      OnClick = btnCancelarClick
     end
   end
   object pnlTop: TPanel
@@ -62,7 +51,7 @@ object frmLocalizarFuncionario: TfrmLocalizarFuncionario
     Align = alTop
     BevelOuter = bvNone
     Caption = 'Localizar funcion'#225'rio'
-    Color = 5089337
+    Color = clTeal
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clHighlightText
     Font.Height = -19
@@ -70,19 +59,73 @@ object frmLocalizarFuncionario: TfrmLocalizarFuncionario
     Font.Style = [fsBold]
     ParentBackground = False
     ParentFont = False
-    TabOrder = 2
+    TabOrder = 1
   end
   object edtNomeFuncionario: TEdit
     Left = 8
-    Top = 64
+    Top = 56
     Width = 711
     Height = 21
-    TabOrder = 3
+    TabOrder = 2
     OnChange = edtNomeFuncionarioChange
+  end
+  object gridFuncionarios: TcxGrid
+    Left = 0
+    Top = 96
+    Width = 727
+    Height = 260
+    Align = alBottom
+    TabOrder = 3
+    object gridFuncionariosView: TcxGridDBTableView
+      Navigator.Buttons.CustomButtons = <>
+      DataController.DataSource = dtsFuncionario
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      OptionsData.CancelOnExit = False
+      OptionsData.Deleting = False
+      OptionsData.DeletingConfirmation = False
+      OptionsData.Editing = False
+      OptionsData.Inserting = False
+      OptionsSelection.CellSelect = False
+      OptionsView.GroupByBox = False
+      OptionsView.GroupFooterMultiSummaries = True
+      object gridFuncionariosViewCODIGO: TcxGridDBColumn
+        DataBinding.FieldName = 'CODIGO'
+      end
+      object gridFuncionariosViewNOME: TcxGridDBColumn
+        DataBinding.FieldName = 'NOME'
+      end
+      object gridFuncionariosViewEMAIL: TcxGridDBColumn
+        DataBinding.FieldName = 'EMAIL'
+      end
+      object gridFuncionariosViewBAIRRO: TcxGridDBColumn
+        DataBinding.FieldName = 'BAIRRO'
+      end
+      object gridFuncionariosViewCIDADE: TcxGridDBColumn
+        DataBinding.FieldName = 'CIDADE'
+      end
+      object gridFuncionariosViewCEP: TcxGridDBColumn
+        DataBinding.FieldName = 'CEP'
+      end
+      object gridFuncionariosViewTELEFONE: TcxGridDBColumn
+        DataBinding.FieldName = 'TELEFONE'
+      end
+      object gridFuncionariosViewDT_NASCIMENTO: TcxGridDBColumn
+        DataBinding.FieldName = 'DT_NASCIMENTO'
+      end
+      object gridFuncionariosViewOBS: TcxGridDBColumn
+        DataBinding.FieldName = 'OBS'
+      end
+    end
+    object gridFuncionariosLevel: TcxGridLevel
+      GridView = gridFuncionariosView
+    end
   end
   object qryFuncionario: TFDQuery
     Active = True
     Filtered = True
+    FilterOptions = [foCaseInsensitive]
     Connection = TabGlobal.FDConnection1
     SQL.Strings = (
       'select * from funcionarios')

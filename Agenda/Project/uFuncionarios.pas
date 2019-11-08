@@ -9,7 +9,23 @@ uses
   Vcl.Imaging.pngimage, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, System.ImageList, Vcl.ImgList;
+  FireDAC.Comp.Client, System.ImageList, Vcl.ImgList, cxGraphics,
+  cxLookAndFeels, cxLookAndFeelPainters, Vcl.Menus, dxSkinsCore, dxSkinBlack,
+  dxSkinBlue, dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee, dxSkinDarkroom,
+  dxSkinDarkSide, dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkinHighContrast, dxSkinLilian, dxSkinLiquidSky,
+  dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis, dxSkinMetropolisDark,
+  dxSkinMoneyTwins, dxSkinOffice2007Black, dxSkinOffice2007Blue,
+  dxSkinOffice2007Green, dxSkinOffice2007Pink, dxSkinOffice2007Silver,
+  dxSkinOffice2010Black, dxSkinOffice2010Blue, dxSkinOffice2010Silver,
+  dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray, dxSkinOffice2013White,
+  dxSkinOffice2016Colorful, dxSkinOffice2016Dark, dxSkinOffice2019Colorful,
+  dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus,
+  dxSkinSilver, dxSkinSpringtime, dxSkinStardust, dxSkinSummer2008,
+  dxSkinTheAsphaltWorld, dxSkinTheBezier, dxSkinsDefaultPainters,
+  dxSkinValentine, dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
+  dxSkinVisualStudio2013Light, dxSkinVS2010, dxSkinWhiteprint,
+  dxSkinXmas2008Blue, cxButtons;
 
 type
   TfrmFuncionarios = class(TForm)
@@ -25,9 +41,7 @@ type
     Label7: TLabel;
     Label8: TLabel;
     edtCodigo: TEdit;
-    btnIncluir: TButton;
     dtpNasc: TDateTimePicker;
-    btnDeletar: TButton;
     EdtNome: TEdit;
     EdtEmail: TEdit;
     EdtBairro: TEdit;
@@ -43,14 +57,21 @@ type
     EdtCidade: TEdit;
     Label11: TLabel;
     Label12: TLabel;
-    cbUF: TComboBox;
+    cbxUF: TComboBox;
     Avatar: TImage;
-    procedure btnIncluirClick(Sender: TObject);
+    btnSalvar: TcxButton;
+    btnSair: TcxButton;
+    ClientDataSet1: TClientDataSet;
+    FDQuery1: TFDQuery;
+    procedure btnSalvarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
 
   private
     { Private declarations }
      procedure CadastrarFuncionario;
+    procedure CarregarEstados;
 
   public
     { Public declarations }
@@ -67,7 +88,12 @@ implementation
 
 uses uTabGlobal;
 
-procedure TfrmFuncionarios.btnIncluirClick(Sender: TObject);
+procedure TfrmFuncionarios.btnSairClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmFuncionarios.btnSalvarClick(Sender: TObject);
 begin
    CadastrarFuncionario();
 end;
@@ -140,8 +166,42 @@ begin
       MessageDlg('Código não especificado', mtError, [mbOK], 0);
     end;
 
+end;
 
+procedure TfrmFuncionarios.FormShow(Sender: TObject);
+begin
+  CarregarEstados();
+end;
+
+procedure TfrmFuncionarios.CarregarEstados();
+var
+  lQry: TFDQuery;
+begin
+  cbxUF.ItemIndex := -1;
+  cbxUF.Text := '';
+  cbxUF.Items.Clear;
+  lQry := TFDQuery.Create(nil);
+
+  lQry.Connection := uTabGlobal.Conexao;
+
+  lQry.SQL.Add('select * from estados');
+
+  try
+    lQry.Open();
+    lQry.First;
+
+    while not lQry.Eof do
+    begin
+      cbxUF.Items.Add( lQry.FieldByName('SIGLA').AsString );
+      lQry.Next;
+    end;
+
+  finally
+    if Assigned(lQry) then
+      FreeAndNil(lQry);
+  end;
 
 end;
+
 
 end.

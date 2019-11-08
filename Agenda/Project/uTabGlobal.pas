@@ -14,8 +14,6 @@ uses
 type
   TTabGlobal = class(TDataModule)
     FDConnection1: TFDConnection;
-    ClientDataSet1: TClientDataSet;
-    DataSource1: TDataSource;
     FDCommand1: TFDCommand;
     FDTransaction1: TFDTransaction;
     Image_16x16: TImageList;
