@@ -1,0 +1,5 @@
+11/11/19 22:27:27 - ===========================================
+11/11/19 22:27:27 - Form: frmFuncionarios
+11/11/19 22:27:27 - Caption: Cadastro de Funcionários
+11/11/19 22:27:27 - Erro:EAccessViolation
+11/11/19 22:27:27 - Erro:Access violation at address 009653E0 in module 'Agenda.exe'. Read of address 000000AC
